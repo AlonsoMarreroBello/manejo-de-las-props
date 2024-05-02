@@ -4,7 +4,7 @@ import styles from './footer.module.css';
 const Footer = ({ year }) => {
   return (
     <div className={styles.footer}>
-      <p>@ {year} all rigths reserved</p>
+      <p> {year} all rigths reserved</p>
     </div>
   );
 };

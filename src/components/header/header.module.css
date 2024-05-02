@@ -1,12 +1,16 @@
 .header {
   background-color: black;
   color: white;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  text-align: center;
+  height: 100px;
 }
 
-/* .header__title {}
+.headerTitle {
+  line-height: 1rem;
+}
 
-.header__subtitle {} */
+.header__subtitle {}
