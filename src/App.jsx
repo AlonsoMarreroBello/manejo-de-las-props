@@ -7,7 +7,7 @@ function App() {
   const characters = [
     {
       id: 1,
-      name: 'Rick Sanchez',
+      charName: 'Rick Sanchez',
       status: 'Alive',
       species: 'Human',
       gender: 'Male',
@@ -18,7 +18,7 @@ function App() {
     },
     {
       id: 2,
-      name: 'Morty Smith',
+      charName: 'Morty Smith',
       status: 'Alive',
       species: 'Human',
       gender: 'Male',
@@ -29,7 +29,7 @@ function App() {
     },
     {
       id: 3,
-      name: 'Summer Smith',
+      charName: 'Summer Smith',
       status: 'Alive',
       species: 'Human',
       gender: 'Female',
@@ -40,7 +40,7 @@ function App() {
     },
     {
       id: 4,
-      name: 'Beth Smith',
+      charName: 'Beth Smith',
       status: 'Alive',
       species: 'Human',
       gender: 'Female',
@@ -51,7 +51,7 @@ function App() {
     },
     {
       id: 6,
-      name: 'Abadango Cluster Princess',
+      charName: 'Abadango Cluster Princess',
       status: 'Alive',
       species: 'Human',
       gender: 'Male',
@@ -62,7 +62,7 @@ function App() {
     },
     {
       id: 13,
-      name: 'Alien Googah',
+      charName: 'Alien Googah',
       status: 'Dead',
       species: 'Alien',
       gender: 'Male',
@@ -80,21 +80,19 @@ function App() {
 
   const character = getRandomCharacter();
 
+  const getCurrentYear = () => {
+    const date = new Date();
+    let year = date.getFullYear();
+    return year;
+  };
+
+  const currentYear = getCurrentYear();
+
   return (
     <>
       <Header title="Tema 5" subtitle="Practica 01"></Header>
-      <Card
-        key={character.id}
-        charName={character.name}
-        status={character.status}
-        species={character.species}
-        gender={character.gender}
-        origin={character.origin}
-        location={character.location}
-        created={character.created}
-        image={character.image}
-      ></Card>
-      <Footer year="2024"></Footer>
+      <Card character={character}></Card>
+      <Footer year={currentYear}></Footer>
     </>
   );
 }

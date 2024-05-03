@@ -1,12 +1,12 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faUser,
+  faCalendar,
   faCommentDots,
-  faPerson,
-  faVenus,
-  faMars,
   faLocationDot,
-  faCalendar
+  faMars,
+  faPerson,
+  faUser,
+  faVenus
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
@@ -22,20 +22,52 @@ library.add(
   faCalendar
 );
 
-const Card = ({
-  charName,
-  status,
-  species,
-  gender,
-  location,
-  created,
-  image
-}) => {
+const Card = ({ character }) => {
+  const { id, charName, status, species, gender, location, created } =
+    character;
+
+  const formatDate = () => {
+    let date = new Date(created);
+    let weekDay = date.getDay();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+
+    const days = [
+      'Domingo',
+      'lunes',
+      'martes',
+      'miercoles',
+      'jueves',
+      'viernes',
+      'Sábado'
+    ];
+    const months = [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre'
+    ];
+    return `${days[weekDay]}, ${day} de ${months[month]} de ${year}`;
+  };
+  const formatedCreated = formatDate();
   return (
     <div className={style.card}>
       <div className={style.cardWrapper}>
         <div className={style.cardHeader}>
-          <img className={style.cardAvatar} src={image} alt="avatar" />
+          <img
+            className={style.cardAvatar}
+            src={`src/images/${id}.jpeg`}
+            alt="avatar"
+          />
           <div className={style.cardPrimaryInfo}>
             <h3 className={style.cardName}>{charName}</h3>
             <p
@@ -65,7 +97,7 @@ const Card = ({
         </p>
         <p>
           <FontAwesomeIcon icon={faCalendar} className={style.cardIconBlue} />
-          {created}
+          {formatedCreated}
         </p>
         <p className={style.cardButtonContainer}>
           <button className={`${style.cardButton} ${style.cardButtonProfile}`}>
@@ -83,14 +115,16 @@ const Card = ({
 };
 
 Card.propTypes = {
-  charName: PropTypes.string,
-  status: PropTypes.string,
-  species: PropTypes.string,
-  gender: PropTypes.string,
-  origin: PropTypes.string,
-  location: PropTypes.string,
-  created: PropTypes.string,
-  image: PropTypes.string
+  character: {
+    id: PropTypes.number,
+    charName: PropTypes.string,
+    status: PropTypes.string,
+    species: PropTypes.string,
+    gender: PropTypes.string,
+    origin: PropTypes.string,
+    location: PropTypes.string,
+    created: PropTypes.string
+  }
 };
 
 export default Card;
