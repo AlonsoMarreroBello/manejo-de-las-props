@@ -91,7 +91,9 @@ function App() {
   return (
     <>
       <Header title="Tema 5" subtitle="Practica 01"></Header>
-      <Card character={character}></Card>
+      <main>
+        <Card character={character}></Card>
+      </main>
       <Footer year={currentYear}></Footer>
     </>
   );
