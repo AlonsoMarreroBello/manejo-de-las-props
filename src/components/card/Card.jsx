@@ -6,6 +6,7 @@ import {
   faMars,
   faPerson,
   faUser,
+  faUserAstronaut,
   faVenus
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +20,8 @@ library.add(
   faVenus,
   faMars,
   faLocationDot,
-  faCalendar
+  faCalendar,
+  faUserAstronaut
 );
 
 const Card = ({ character }) => {
@@ -78,7 +80,7 @@ const Card = ({ character }) => {
           </div>
         </div>
         <p>
-          <FontAwesomeIcon icon={faPerson} className={style.cardIconBlue} />
+          <FontAwesomeIcon icon={ species === 'Human' ? faPerson : faUserAstronaut} className={style.cardIconBlue} />
           {species}
         </p>
         <p>
