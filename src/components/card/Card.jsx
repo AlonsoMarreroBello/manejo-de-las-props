@@ -65,7 +65,7 @@ const Card = ({ character }) => {
         <div className={style.cardHeader}>
           <img
             className={style.cardAvatar}
-            src={`src/images/${id}.jpeg`}
+            src={`src/assets/images/${id}.jpeg`}
             alt="avatar"
           />
           <div className={style.cardPrimaryInfo}>
