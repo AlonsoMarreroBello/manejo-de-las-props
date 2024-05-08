@@ -28,39 +28,18 @@ const Card = ({ character }) => {
   const { id, charName, status, species, gender, location, created } =
     character;
 
-  const formatDate = () => {
-    let date = new Date(created);
-    let weekDay = date.getDay();
-    let day = date.getDate();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-
-    const days = [
-      'Domingo',
-      'lunes',
-      'martes',
-      'miercoles',
-      'jueves',
-      'viernes',
-      'Sábado'
-    ];
-    const months = [
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio',
-      'Julio',
-      'Agosto',
-      'Septiembre',
-      'Octubre',
-      'Noviembre',
-      'Diciembre'
-    ];
-    return `${days[weekDay]}, ${day} de ${months[month]} de ${year}`;
+    const formatDate = () => {
+      const date = new Date(created);
+      const weekDay = date.toLocaleString('es-ES', { weekday: 'long' });
+      const day = date.getDate();
+      const month = date.toLocaleString('es-ES', { month: 'long' });
+      const year = date.getFullYear();
+  
+      return `${weekDay}, ${day} de ${month} de ${year}`;
   };
+
   const formatedCreated = formatDate();
+  
   return (
     <div className={style.card}>
       <div className={style.cardWrapper}>
