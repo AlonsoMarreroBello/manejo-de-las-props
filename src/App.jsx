@@ -5,7 +5,6 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 
 function App() {
-
   const getRandomCharacter = () => {
     const index = Math.floor(Math.random() * characters.length);
     return characters[index];
@@ -23,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Header title="Tema 5" subtitle="Practica 01"></Header>
+      <Header title="Tema 05" subtitle="Practica 01"></Header>
       <main>
         <Card character={character}></Card>
       </main>

@@ -80,6 +80,15 @@
   color: black;
 }
 
+.cardButtonProfile:hover {
+  background-color: rgb(168, 167, 167);
+  color: black;
+}
+
 .cardButtonContact {
   background-color: rgb(16, 98, 232);
+}
+
+.cardButtonContact:hover {
+  background-color: rgb(13, 79, 185);
 }
